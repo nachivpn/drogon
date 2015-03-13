@@ -27,7 +27,7 @@ body		: product
 tail    	: product 
         	| COMMENT
         	;
-
+	
 product		: ID '/' version	{
 									list.add($ID.text);
 								}
@@ -36,12 +36,11 @@ product		: ID '/' version	{
 	   							}
 	   		;
 
-version		: NUM
-        	| version '.' NUM
+version		: ID
         	;
  
 NUM			: [0-9]+;	
-ID 			: [A-Za-z]+;		
+ID 			: [A-Za-z0-9.!#$%&'*+-.^_`|~]+;		
 SP 			: [ \t];
 WS 			: [\r\n]+ -> skip; 
 COMMENT		: '(' (.)*? ')';	

@@ -21,7 +21,7 @@ public class UserAgentParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, NUM=3, ID=4, SP=5, WS=6, COMMENT=7;
+		T__0=1, NUM=2, ID=3, SP=4, WS=5, COMMENT=6;
 	public static final int
 		RULE_useragent = 0, RULE_body = 1, RULE_tail = 2, RULE_product = 3, RULE_version = 4;
 	public static final String[] ruleNames = {
@@ -29,10 +29,10 @@ public class UserAgentParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'/'", "'.'"
+		null, "'/'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, "NUM", "ID", "SP", "WS", "COMMENT"
+		null, null, "NUM", "ID", "SP", "WS", "COMMENT"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -81,6 +81,10 @@ public class UserAgentParser extends Parser {
 
 
 		List<String>list;
+		/**
+		* Custom constructor to pass reference to a list to 
+		* which product names are to be added
+		*/
 		public UserAgentParser(TokenStream input, List list){
 			this(input);
 			this.list = list;
@@ -299,7 +303,7 @@ public class UserAgentParser extends Parser {
 				setState(28);
 				match(T__0);
 				setState(29);
-				version(0);
+				version();
 
 													list.add((((ProductContext)_localctx).ID!=null?((ProductContext)_localctx).ID.getText():null));
 												
@@ -329,10 +333,7 @@ public class UserAgentParser extends Parser {
 	}
 
 	public static class VersionContext extends ParserRuleContext {
-		public TerminalNode NUM() { return getToken(UserAgentParser.NUM, 0); }
-		public VersionContext version() {
-			return getRuleContext(VersionContext.class,0);
-		}
+		public TerminalNode ID() { return getToken(UserAgentParser.ID, 0); }
 		public VersionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -348,49 +349,13 @@ public class UserAgentParser extends Parser {
 	}
 
 	public final VersionContext version() throws RecognitionException {
-		return version(0);
-	}
-
-	private VersionContext version(int _p) throws RecognitionException {
-		ParserRuleContext _parentctx = _ctx;
-		int _parentState = getState();
-		VersionContext _localctx = new VersionContext(_ctx, _parentState);
-		VersionContext _prevctx = _localctx;
-		int _startState = 8;
-		enterRecursionRule(_localctx, 8, RULE_version, _p);
+		VersionContext _localctx = new VersionContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_version);
 		try {
-			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			{
-			setState(37);
-			match(NUM);
-			}
-			_ctx.stop = _input.LT(-1);
-			setState(44);
-			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
-			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
-				if ( _alt==1 ) {
-					if ( _parseListeners!=null ) triggerExitRuleEvent();
-					_prevctx = _localctx;
-					{
-					{
-					_localctx = new VersionContext(_parentctx, _parentState);
-					pushNewRecursionContext(_localctx, _startState, RULE_version);
-					setState(39);
-					if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-					setState(40);
-					match(T__1);
-					setState(41);
-					match(NUM);
-					}
-					} 
-				}
-				setState(46);
-				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,3,_ctx);
-			}
+			setState(36);
+			match(ID);
 			}
 		}
 		catch (RecognitionException re) {
@@ -399,7 +364,7 @@ public class UserAgentParser extends Parser {
 			_errHandler.recover(this, re);
 		}
 		finally {
-			unrollRecursionContexts(_parentctx);
+			exitRule();
 		}
 		return _localctx;
 	}
@@ -408,8 +373,6 @@ public class UserAgentParser extends Parser {
 		switch (ruleIndex) {
 		case 1:
 			return body_sempred((BodyContext)_localctx, predIndex);
-		case 4:
-			return version_sempred((VersionContext)_localctx, predIndex);
 		}
 		return true;
 	}
@@ -420,28 +383,19 @@ public class UserAgentParser extends Parser {
 		}
 		return true;
 	}
-	private boolean version_sempred(VersionContext _localctx, int predIndex) {
-		switch (predIndex) {
-		case 1:
-			return precpred(_ctx, 1);
-		}
-		return true;
-	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\t\62\4\2\t\2\4\3"+
-		"\t\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\7\3\25\n"+
-		"\3\f\3\16\3\30\13\3\3\4\3\4\5\4\34\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5"+
-		"%\n\5\3\6\3\6\3\6\3\6\3\6\3\6\7\6-\n\6\f\6\16\6\60\13\6\3\6\2\4\4\n\7"+
-		"\2\4\6\b\n\2\2\60\2\f\3\2\2\2\4\16\3\2\2\2\6\33\3\2\2\2\b$\3\2\2\2\n&"+
-		"\3\2\2\2\f\r\5\4\3\2\r\3\3\2\2\2\16\17\b\3\1\2\17\20\5\b\5\2\20\26\3\2"+
-		"\2\2\21\22\f\3\2\2\22\23\7\7\2\2\23\25\5\6\4\2\24\21\3\2\2\2\25\30\3\2"+
-		"\2\2\26\24\3\2\2\2\26\27\3\2\2\2\27\5\3\2\2\2\30\26\3\2\2\2\31\34\5\b"+
-		"\5\2\32\34\7\t\2\2\33\31\3\2\2\2\33\32\3\2\2\2\34\7\3\2\2\2\35\36\7\6"+
-		"\2\2\36\37\7\3\2\2\37 \5\n\6\2 !\b\5\1\2!%\3\2\2\2\"#\7\6\2\2#%\b\5\1"+
-		"\2$\35\3\2\2\2$\"\3\2\2\2%\t\3\2\2\2&\'\b\6\1\2\'(\7\5\2\2(.\3\2\2\2)"+
-		"*\f\3\2\2*+\7\4\2\2+-\7\5\2\2,)\3\2\2\2-\60\3\2\2\2.,\3\2\2\2./\3\2\2"+
-		"\2/\13\3\2\2\2\60.\3\2\2\2\6\26\33$.";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\b)\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\7\3\25\n\3"+
+		"\f\3\16\3\30\13\3\3\4\3\4\5\4\34\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5%"+
+		"\n\5\3\6\3\6\3\6\2\3\4\7\2\4\6\b\n\2\2&\2\f\3\2\2\2\4\16\3\2\2\2\6\33"+
+		"\3\2\2\2\b$\3\2\2\2\n&\3\2\2\2\f\r\5\4\3\2\r\3\3\2\2\2\16\17\b\3\1\2\17"+
+		"\20\5\b\5\2\20\26\3\2\2\2\21\22\f\3\2\2\22\23\7\6\2\2\23\25\5\6\4\2\24"+
+		"\21\3\2\2\2\25\30\3\2\2\2\26\24\3\2\2\2\26\27\3\2\2\2\27\5\3\2\2\2\30"+
+		"\26\3\2\2\2\31\34\5\b\5\2\32\34\7\b\2\2\33\31\3\2\2\2\33\32\3\2\2\2\34"+
+		"\7\3\2\2\2\35\36\7\5\2\2\36\37\7\3\2\2\37 \5\n\6\2 !\b\5\1\2!%\3\2\2\2"+
+		"\"#\7\5\2\2#%\b\5\1\2$\35\3\2\2\2$\"\3\2\2\2%\t\3\2\2\2&\'\7\5\2\2\'\13"+
+		"\3\2\2\2\5\26\33$";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

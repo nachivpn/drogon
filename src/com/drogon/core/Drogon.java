@@ -1,12 +1,8 @@
 package com.drogon.core;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
@@ -25,8 +21,7 @@ public class Drogon {
 	 * @throws IOException
 	 */
 	public List <String> getProductList(String userAgent) throws IOException{
-		InputStream is = new ByteArrayInputStream(userAgent.getBytes(Charset.defaultCharset()));
-		ANTLRInputStream antlr = new ANTLRInputStream(is);
+		ANTLRInputStream antlr = new ANTLRInputStream(userAgent);
 		UserAgentLexer lexer = new UserAgentLexer(antlr);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		UserAgentParser parser = new UserAgentParser(tokens, list);
