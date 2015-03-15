@@ -39,7 +39,6 @@ product		: ID '/' version	{
 version		: ID
         	;
  
-NUM			: [0-9]+;	
 ID 			: [A-Za-z0-9.!#$%&'*+-.^_`|~]+;		
 SP 			: [ \t];
 WS 			: [\r\n]+ -> skip; 

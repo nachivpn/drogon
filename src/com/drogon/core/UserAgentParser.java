@@ -21,7 +21,7 @@ public class UserAgentParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, NUM=2, ID=3, SP=4, WS=5, COMMENT=6;
+		T__0=1, ID=2, SP=3, WS=4, COMMENT=5;
 	public static final int
 		RULE_useragent = 0, RULE_body = 1, RULE_tail = 2, RULE_product = 3, RULE_version = 4;
 	public static final String[] ruleNames = {
@@ -32,7 +32,7 @@ public class UserAgentParser extends Parser {
 		null, "'/'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, "NUM", "ID", "SP", "WS", "COMMENT"
+		null, null, "ID", "SP", "WS", "COMMENT"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -385,16 +385,16 @@ public class UserAgentParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\b)\4\2\t\2\4\3\t"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\7)\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\7\3\25\n\3"+
 		"\f\3\16\3\30\13\3\3\4\3\4\5\4\34\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5%"+
 		"\n\5\3\6\3\6\3\6\2\3\4\7\2\4\6\b\n\2\2&\2\f\3\2\2\2\4\16\3\2\2\2\6\33"+
 		"\3\2\2\2\b$\3\2\2\2\n&\3\2\2\2\f\r\5\4\3\2\r\3\3\2\2\2\16\17\b\3\1\2\17"+
-		"\20\5\b\5\2\20\26\3\2\2\2\21\22\f\3\2\2\22\23\7\6\2\2\23\25\5\6\4\2\24"+
+		"\20\5\b\5\2\20\26\3\2\2\2\21\22\f\3\2\2\22\23\7\5\2\2\23\25\5\6\4\2\24"+
 		"\21\3\2\2\2\25\30\3\2\2\2\26\24\3\2\2\2\26\27\3\2\2\2\27\5\3\2\2\2\30"+
-		"\26\3\2\2\2\31\34\5\b\5\2\32\34\7\b\2\2\33\31\3\2\2\2\33\32\3\2\2\2\34"+
-		"\7\3\2\2\2\35\36\7\5\2\2\36\37\7\3\2\2\37 \5\n\6\2 !\b\5\1\2!%\3\2\2\2"+
-		"\"#\7\5\2\2#%\b\5\1\2$\35\3\2\2\2$\"\3\2\2\2%\t\3\2\2\2&\'\7\5\2\2\'\13"+
+		"\26\3\2\2\2\31\34\5\b\5\2\32\34\7\7\2\2\33\31\3\2\2\2\33\32\3\2\2\2\34"+
+		"\7\3\2\2\2\35\36\7\4\2\2\36\37\7\3\2\2\37 \5\n\6\2 !\b\5\1\2!%\3\2\2\2"+
+		"\"#\7\4\2\2#%\b\5\1\2$\35\3\2\2\2$\"\3\2\2\2%\t\3\2\2\2&\'\7\4\2\2\'\13"+
 		"\3\2\2\2\5\26\33$";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
