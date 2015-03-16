@@ -21,7 +21,6 @@ grammar UserAgent;
 useragent  	:  body;         
 
 body		: bunit
-			| body SP bunit
 			| body bunit
 			;
 
@@ -40,7 +39,7 @@ product		: ID '/' version	{
 version		: ID
         	;
  
-ID 			: [A-Za-z0-9.!#$%&'*+-.^_`|~]+;		
-SP 			: [ \t];
-WS 			: [\r\n]+ -> skip; 
+ID 			: [A-Za-z0-9.!#$%&'*+-.^_`|~;=@]+;		
+WS 			: [ \t\r\n]+ -> skip; 
 COMMENT		: '(' (.)*? ')';	
+IGNORE		: '[' (.)*? ']' -> skip;
