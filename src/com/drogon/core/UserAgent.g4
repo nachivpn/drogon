@@ -20,11 +20,12 @@ grammar UserAgent;
 
 useragent  	:  body;         
 
-body		: product
-			| body SP tail
+body		: bunit
+			| body SP bunit
+			| body bunit
 			;
 
-tail    	: product 
+bunit    	: product 
         	| COMMENT
         	;
 	

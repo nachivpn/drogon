@@ -45,13 +45,13 @@ public class UserAgentBaseListener implements UserAgentListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTail(UserAgentParser.TailContext ctx) { }
+	@Override public void enterBunit(UserAgentParser.BunitContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTail(UserAgentParser.TailContext ctx) { }
+	@Override public void exitBunit(UserAgentParser.BunitContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

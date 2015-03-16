@@ -33,15 +33,15 @@ public interface UserAgentListener extends ParseTreeListener {
 	 */
 	void exitBody(UserAgentParser.BodyContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link UserAgentParser#tail}.
+	 * Enter a parse tree produced by {@link UserAgentParser#bunit}.
 	 * @param ctx the parse tree
 	 */
-	void enterTail(UserAgentParser.TailContext ctx);
+	void enterBunit(UserAgentParser.BunitContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link UserAgentParser#tail}.
+	 * Exit a parse tree produced by {@link UserAgentParser#bunit}.
 	 * @param ctx the parse tree
 	 */
-	void exitTail(UserAgentParser.TailContext ctx);
+	void exitBunit(UserAgentParser.BunitContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link UserAgentParser#product}.
 	 * @param ctx the parse tree
