@@ -9,7 +9,7 @@ grammar UserAgent;
 @parser::members{
 	List<String>list;
 	/**
-	* Custom constructor to pass reference to a list to 
+	* Custom constructor to pass reference of a list to 
 	* which product names are to be added
 	*/
 	public UserAgentParser(TokenStream input, List list){
@@ -21,25 +21,21 @@ grammar UserAgent;
 useragent  	:  body;         
 
 body		: bunit
-			| body bunit
-			;
+		| body bunit
+		;
 
 bunit    	: product 
         	| COMMENT
         	;
 	
-product		: ID '/' version	{
-									list.add($ID.text);
-								}
-	   		| ID				{
-	   								list.add($ID.text);
-	   							}
-	   		;
+product		: ID '/' version	{list.add($ID.text);}
+	   	| ID			{list.add($ID.text);}
+	   	;
 
 version		: ID
         	;
  
-ID 			: [A-Za-z0-9.!#$%&'*+-.^_`|~;=@]+;		
-WS 			: [ \t\r\n]+ -> skip; 
+ID 		: [A-Za-z0-9.!#$%&'*+-.^_`|~;=@]+;		
+WS 		: [ \t\r\n]+ -> skip; 
 COMMENT		: '(' (.)*? ')';	
 IGNORE		: '[' (.)*? ']' -> skip;
