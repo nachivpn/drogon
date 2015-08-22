@@ -10,10 +10,10 @@ Contributors: Nachi
 public class TestParser {
 
 	public static void main(String[] args) {
-		String str = "Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.7 Safari/534.34";
+		String str = "Mozilla/5.0 (Linux; Android 4.4.2; SGH-T399N Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36";
 		try {
 			long start = System.currentTimeMillis();
-			for(int i=0;i<10000;i++){
+			for(int i=0;i<1;i++){
 				Drogon parser = new Drogon(); 
 				Iterator<String> iterator = parser.getProductList(str).iterator();
 				while(iterator.hasNext()){

@@ -26,4 +26,5 @@ Product = libidn
 Product = librtmp
 ```
 
-Read [this post](http://nachivpn.blogspot.in/2015/03/blocking-user-agents-efficiently.html) to find out why this parser is awesome/
+Parse tree of the user agent:
+![Parse tree](https://raw.githubusercontent.com/nachivpn/drogon/master/parse_tree.png)
